@@ -1,11 +1,15 @@
 import { ChakraProvider, ColorModeScript, GlobalStyle } from '@chakra-ui/react';
+import { SupabaseClient } from '@supabase/supabase-js';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
+import { SupabaseProvider } from './SupabaseProvider';
 import './index.css';
 import { theme } from './theme';
+
+const client = new SupabaseClient(process.env.VITE_SUPABASE_URL!, process.env.VITE_SUPABASE_ANON_KEY!);
 
 ReactDOM.createRoot(document.querySelector('#root')!).render(
   <>
@@ -14,7 +18,9 @@ ReactDOM.createRoot(document.querySelector('#root')!).render(
       <ChakraProvider theme={theme}>
         <GlobalStyle />
         <BrowserRouter>
-          <App />
+          <SupabaseProvider client={client}>
+            <App />
+          </SupabaseProvider>
         </BrowserRouter>
       </ChakraProvider>
     </React.StrictMode>
