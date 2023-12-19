@@ -19,6 +19,7 @@ module.exports = {
     'prettier',
     '@emotion',
     'chakra-ui',
+    'require-extensions',
   ],
   extends: [
     'eslint:recommended',
