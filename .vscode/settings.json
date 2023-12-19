@@ -5,6 +5,7 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
+  "deno.enable": false,
   "deno.enablePaths": [
     "./supabase/functions"
   ],
